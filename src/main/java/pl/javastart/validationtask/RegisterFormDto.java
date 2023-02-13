@@ -1,14 +1,36 @@
 package pl.javastart.validationtask;
 
+import javax.validation.constraints.*;
+
 public class RegisterFormDto {
 
+    @NotBlank(message = "Pole nie może być puste")
+    @Size(min = 3, message = "Pole musi mieć conajmniej 3 znaki")
     private String firstName;
+
+    @NotBlank(message = "Pole nie może być puste")
+    @Size(min = 3, message = "Pole musi mieć conajmniej 3 znaki")
     private String surname;
+
+    @NotBlank(message = "Pole nie może być puste")
     private String address;
+
+    @NotBlank(message = "Pole nie może być puste")
+    @Pattern(regexp = "\\d{2}-\\d{3}", message = "Wpisz poprawny kod pocztowy")
     private String postalCode;
+
+    @NotBlank(message = "Pole nie może być puste")
     private String city;
+
+    @NotBlank(message = "Pole nie może być puste")
+    @Email(message = "musi być poprawnie sformatowanym adresem e-mail")
     private String email;
+
+    @NotBlank(message = "Pole nie może być puste")
+    @Size(min = 8, message = "Hasłol musi mieć conajmniej 8 znaków")
     private String password;
+
+    @AssertTrue(message = "Akceptacja regulaminu jest wymagana")
     private boolean termsAgreement;
 
     public String getFirstName() {
